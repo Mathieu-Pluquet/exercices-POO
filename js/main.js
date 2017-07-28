@@ -109,21 +109,39 @@
 
 // exercice3
 
-
+var tableauProduct = [];
+var i =0;
 function produit (titre,phrase,description) {
   this.titre=titre;
   this.phrase=phrase;
   this.description=description;
 };
 
-  $('#boutton').click(function() {
-  var mess1= $('#mess1').val()
-    var mess2 = $('#mess2').val();
-    var mess3 = $('#mess3').val();
-    var envoie = $('<p></p>').text(mess1);
-    var envoie2 = $('<p></p>').text(mess2);
-    var envoie3 = $('<p></p>').text(mess3);
+function form (titre,phrase,description) {
+  this.titre=titre;
+  this.phrase=phrase;
+  this.description=description;
+  this.createProduct=function() {
+  //new Produit et mettre dand tableauProduct
+    tableauProduct[i] = new produit (this.titre,this.phrase,this.description)
+
+    var envoie = $('<p class="lol" ></p>').text(tableauProduct[i].titre);
+    var envoie2 = $('<p class="lol" ></p>').text(tableauProduct[i].phrase);
+    var envoie3 = $('<p class="lol" ></p>').text(tableauProduct[i].description);
     $(".bg").append(envoie);
     $(".bg").append(envoie2);
     $(".bg").append(envoie3);
-  });
+    $('#mess1').val("")
+    $('#mess2').val("")
+    $('#mess3').val("")
+    i++;
+  }
+};
+
+$('#boutton').on("click",function() {
+  var formulaire = new form ($("#mess1").val(), $("#mess2").val(), $("#mess3").val())
+  formulaire.createProduct()
+});
+
+
+// exercice4
