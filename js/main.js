@@ -109,39 +109,51 @@
 
 // exercice3
 
-var tableauProduct = [];
-var i =0;
-function produit (titre,phrase,description) {
-  this.titre=titre;
-  this.phrase=phrase;
-  this.description=description;
-};
-
-function form (titre,phrase,description) {
-  this.titre=titre;
-  this.phrase=phrase;
-  this.description=description;
-  this.createProduct=function() {
-  //new Produit et mettre dand tableauProduct
-    tableauProduct[i] = new produit (this.titre,this.phrase,this.description)
-
-    var envoie = $('<p class="lol" ></p>').text(tableauProduct[i].titre);
-    var envoie2 = $('<p class="lol" ></p>').text(tableauProduct[i].phrase);
-    var envoie3 = $('<p class="lol" ></p>').text(tableauProduct[i].description);
-    $(".bg").append(envoie);
-    $(".bg").append(envoie2);
-    $(".bg").append(envoie3);
-    $('#mess1').val("")
-    $('#mess2').val("")
-    $('#mess3').val("")
-    i++;
-  }
-};
-
-$('#boutton').on("click",function() {
-  var formulaire = new form ($("#mess1").val(), $("#mess2").val(), $("#mess3").val())
-  formulaire.createProduct()
-});
+// var tableauProduct = [];
+// var i =0;
+// function produit (titre,phrase,description) {
+//   this.titre=titre;
+//   this.phrase=phrase;
+//   this.description=description;
+// };
+//
+// function form (titre,phrase,description) {
+//   this.titre=titre;
+//   this.phrase=phrase;
+//   this.description=description;
+//   this.createProduct=function() {
+//   // new Produit et mettre dand tableauProduct
+//     tableauProduct[i] = new produit (this.titre,this.phrase,this.description)
+//     var envoie = $('<p class="lol" ></p>').text(tableauProduct[i].titre);
+//     var envoie2 = $('<p class="lol" ></p>').text(tableauProduct[i].phrase);
+//     var envoie3 = $('<p class="lol" ></p>').text(tableauProduct[i].description);
+//     var envoie4 = $('<p class="test" ></p>').text(" ");
+//     $(".bg").append(envoie);
+//     $(".bg").append(envoie2);
+//     $(".bg").append(envoie3);
+//     $(".bg").append(envoie4);
+//     $('#mess1').val("")
+//     $('#mess2').val("")
+//     $('#mess3').val("")
+//     i++;
+//   }
+// };
+//
+// $('#boutton').on("click",function() {
+//   var formulaire = new form ($("#mess1").val(), $("#mess2").val(), $("#mess3").val())
+//   formulaire.createProduct()
+// });
 
 
 // exercice4
+
+
+var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("demo").innerHTML =
+            this.responseText;
+       }
+    };
+    xhttp.open("GET", "test.txt", true);
+    xhttp.send();
